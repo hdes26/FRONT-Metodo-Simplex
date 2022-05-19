@@ -1,8 +1,3 @@
-// let variables=parseInt(prompt("Cuantas variables hay?"));
-// console.log("cuantas variables:"+variables);
-
-// let restricciones=parseInt(prompt("Cuantas restricciones"));
-// console.log("Cuantas restricciones:"+restricciones);
 
 let variables;
 let restricciones;
@@ -11,10 +6,11 @@ let opcion;
 
 //-----------------------------------------------------------------------------------------------------------//
 function enviar(){
-    variables=document.getElementById('variables').value;
-    restricciones=document.getElementById('restricciones').value;
+    variables=convertir_numero(document.getElementById('variables').value);
+    restricciones=convertir_numero(document.getElementById('restricciones').value);
     opcion=document.getElementById('select_multiples').value;
     create_fun_obj();
+    create_restricciones();
     
 }
 
@@ -75,28 +71,50 @@ function leer_restricciones(){
 
 }
 
-
+// crea los cuadros de donde se obtendra los datos de la funcion objetivo//
 function create_fun_obj(){
     const label=document.querySelector(".titulo_fun")
     label.removeAttribute('style')
+    const labell=document.querySelector(".restriccion_titulo")
+    labell.removeAttribute('style')
+
     const funcion_obj=document.querySelector('.f_objt');
-   
-   function mas(index, variable){
-    if(index==(variable-1)){
-        return ""
-    }else{
-      return "+"
-    }
-   }
+  
     for (let index = 0; index <=variables-1; index++) {
         funcion_obj.innerHTML+= `
-        <input type="text" name="" class="input_fu">
+        <input type="text" name="" class=""  style="width:5%; height: 10%;">
         <label for="">x<sub>${index+1}</sub></label>
         ${mas(index, variables)}
         `        
     }
 
 }
+
+
+
+function create_restricciones(){
+    let vi=variables+2;
+    console.log(vi)
+    const restricciones_input=document.querySelector('.restriccion_div');
+    for (let i = 0; i <= restricciones-1; i++) {
+        restricciones_input.innerHTML+=`<p class="input" style="display:flex;"> </p>`
+        const int=document.querySelectorAll('.input');
+        for (let j = 0; j <=(variables+1); j++) {
+            //console.log(vi)
+            int[i].innerHTML+= `  <input type="text" name="" class=""  style="width:5%; height: 10%;">
+            <label for="">x<sub>${j+1}</sub></label>
+            ${mass(j, variables)}
+            `     
+        }
+    }
+
+    
+}
+
+function crea_inputs(){
+   
+         
+} 
 
 //funcion que leera los datos de entrada de la funcion objetivo y los guardara en el array List
 function leer_fun_obj(){
@@ -164,3 +182,19 @@ function convertir_numero(numero){
     return Numero;
 }
 
+//validar el signo + despues de cada input
+function mas(index, variable){
+    if(index==(variable-1)){
+        return ""
+    }else{
+      return "+"
+    }
+}
+
+function mass(index, variable){
+    if(index==(variable+1)){
+        return ""
+    }else{
+      return "+"
+    }
+}

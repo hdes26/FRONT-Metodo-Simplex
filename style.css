@@ -18,7 +18,7 @@ body{
 .funcion_obj{ 
     /* div */
     /* display: flex; */
-    height: 5%;
+    height: fit-content;
 }
 
 .f_objt{
@@ -31,11 +31,11 @@ body{
 
 }
 
-.input_fu{
-    /* input */
-    height: auto;
+/* .input_fu{
+    input 
+     height: auto;
     width: 20%;
-}
+} */
 
 .contend_box{
     margin: 15% 5% 0% 0%;
