@@ -1,0 +1,65 @@
+body{
+    background-color: azure;
+}
+
+
+.contend_main{
+    height: 100vh;
+    /* border: 1px solid black; */
+    margin: 0% 20vh 0% 20vh;
+}
+
+.contend_mainn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.funcion_obj{ 
+    /* div */
+    /* display: flex; */
+    height: 5%;
+}
+
+.f_objt{
+    /* p */
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: baseline;
+    margin: 0;
+    height: auto;
+
+}
+
+.input_fu{
+    /* input */
+    height: auto;
+    width: 20%;
+}
+
+.contend_box{
+    margin: 15% 5% 0% 0%;
+}
+
+.contend_boton{
+    margin-top: 16%;
+}
+
+.contend_box div{
+margin-top: 2%;
+
+} 
+
+
+.contend_box div input{
+    height: max-content;
+} 
+
+
+.resultado{
+   margin-left: 30%;
+    width: 30%;
+    border: 1px solid black;
+    height: 20vh;
+    background-color: white;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="contend_main">
+            <div class="contend_mainn">
+                <div class="contend_box">
+                    <div>
+                        <input type="text" name="variables" id="variables" placeholder="Variables">
+                    </div>
+                    <div>
+                        <input type="text" name="variables" id="restricciones" placeholder="Restricciones">
+                    </div>
+                    <div class="select">
+                        <select name="select" id="select_multiples" required>
+                            <option value="1">maximizar</option>
+                            <option value="2">minimizar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="contend_boton">
+                    <div>
+                        <input type="button" value="Generar" name="Calcular" onclick='enviar()'>
+                    </div>
+                </div>  
+            </div>
+            <div class="funcion_obj">
+                <h3 class="titulo_fun" style="display: none;">funcion objetivo</h3>
+               <p class="f_objt">
+
+               </p>
+            </div>
+           
+        </div>
+        
+        
+        <script src="estandarizacion.js" async defer></script>
+    </body>
+</html>
+
+
+
