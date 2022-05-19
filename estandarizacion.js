@@ -93,14 +93,11 @@ function create_fun_obj(){
 
 
 function create_restricciones(){
-    let vi=variables+2;
-    console.log(vi)
     const restricciones_input=document.querySelector('.restriccion_div');
     for (let i = 0; i <= restricciones-1; i++) {
         restricciones_input.innerHTML+=`<p class="input" style="display:flex;"> </p>`
         const int=document.querySelectorAll('.input');
         for (let j = 0; j <=(variables+1); j++) {
-            //console.log(vi)
             int[i].innerHTML+= `  <input type="text" name="" class=""  style="width:5%; height: 10%;">
             <label for="">x<sub>${j+1}</sub></label>
             ${mass(j, variables)}
