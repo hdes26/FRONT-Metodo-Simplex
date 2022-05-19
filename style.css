@@ -1,63 +1,119 @@
-body{
-    background-color: azure;
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body {
+    background: #C33764;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1D2671, #C33764);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
-.contend_main{
-    height: 100vh;
-    /* border: 1px solid black; */
-    margin: 0% 20vh 0% 20vh;
-}
-
-.contend_mainn{
+.contend_main {
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
 }
 
-.funcion_obj{ 
-    /* div */
-    /* display: flex; */
+
+.contend_mainn {
+    width: auto;
+    height: auto;
+}
+
+.contend_mainn .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40vh;
+    width: auto;
+}
+
+.contend_mainn .form input {
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    margin-top: 10px;
+}
+
+.contend_mainn .form select {
+    align-self: start;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.contend_mainn .form button {
+    margin-top: 10px;
+    background-color: #1D2671;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(6, 169, 6);
+}
+
+.contend_mainn .form button:hover {
+    background-color: #224e8b;
+    color: white;
+    font-weight: bold;
+}
+
+.funcion_obj {
+    display: flex;
+    justify-content: center;
     height: fit-content;
+    flex-direction: column;
+    align-items: center;
 }
 
-.f_objt{
+.f_objt {
     /* p */
     display: flex;
     flex-wrap: wrap;
     vertical-align: baseline;
     margin: 0;
     height: auto;
+    justify-content: center;
+    font-weight: bold;
 
 }
 
-/* .input_fu{
-    input 
-     height: auto;
-    width: 20%;
-} */
-
-.contend_box{
-    margin: 15% 5% 0% 0%;
+.restriccion_div{
+    align-self: flex-start;
 }
 
-.contend_boton{
-    margin-top: 16%;
+
+
+.contend_box div {
+    margin-top: 2%;
+
 }
 
-.contend_box div{
-margin-top: 2%;
+.contend_box .select select {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
 
-} 
 
-
-.contend_box div input{
+.contend_box div input {
     height: max-content;
-} 
+}
 
 
-.resultado{
-   margin-left: 30%;
+.resultado {
+    margin-left: 30%;
     width: 30%;
     border: 1px solid black;
     height: 20vh;

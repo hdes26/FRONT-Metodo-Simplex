@@ -12,32 +12,26 @@
     <body>
         <div class="contend_main">
             <div class="contend_mainn">
-                <div class="contend_box">
-                    <div>
-                        <input type="text" name="variables" id="variables" placeholder="Variables">
-                    </div>
-                    <div>
-                        <input type="text" name="variables" id="restricciones" placeholder="Restricciones">
-                    </div>
-                    <div class="select">
-                        <select name="select" id="select_multiples" required>
-                            <option value="1">maximizar</option>
-                            <option value="2">minimizar</option>
-                        </select>
-                    </div>
+
+                <div class="form">
+                    <input type="number" name="variables" id="variables" placeholder="Variables" required >
+                    <input type="number" name="variables" id="restricciones" placeholder="Restricciones" required>
+                    <select name="select" id="select_multiples" required>
+                        <option value="1">maximizar</option>
+                        <option value="2">minimizar</option>
+                    </select>
+                    <button id="btnform" type="submit"  name="Calcular" onclick="enviar()">Generar</button>
+
+
                 </div>
-                <div class="contend_boton">
-                    <div>
-                        <input type="button" value="Generar" name="Calcular" onclick='enviar()'>
-                    </div>
-                </div>  
+ 
             </div>
             <!-- div de la funcion objeiva -->
             <div class="funcion_obj">
-                <h3 class="titulo_fun" style="display: none;">funcion objetivo</h3>
-               <p class="f_objt">
+                <h3 class="titulo_fun" style="display: none;">Funcion objetivo</h3>
+               <div class="f_objt">
 
-               </p>
+               </div>
             </div>
             <!-- div de las restricciones -->
             <div class="restriccion_div">

@@ -9,8 +9,11 @@ function enviar(){
     variables=convertir_numero(document.getElementById('variables').value);
     restricciones=convertir_numero(document.getElementById('restricciones').value);
     opcion=document.getElementById('select_multiples').value;
-    create_fun_obj();
-    create_restricciones();
+    if (variables && restricciones && opcion) {
+        create_fun_obj();
+        create_restricciones();
+    }
+    
     
 }
 
@@ -82,7 +85,7 @@ function create_fun_obj(){
   
     for (let index = 0; index <=variables-1; index++) {
         funcion_obj.innerHTML+= `
-        <input type="text" name="" class=""  style="width:5%; height: 10%;">
+        <input type="text" name="" class=""  style="width:9.5%; height: 10%; border-radius: 6px; border:none;">
         <label for="">x<sub>${index+1}</sub></label>
         ${mas(index, variables)}
         `        
@@ -97,13 +100,13 @@ function create_restricciones(){
     console.log(vi)
     const restricciones_input=document.querySelector('.restriccion_div');
     for (let i = 0; i <= restricciones-1; i++) {
-        restricciones_input.innerHTML+=`<p class="input" style="display:flex;"> </p>`
+        restricciones_input.innerHTML+=`<div class="input" style="display:flex; font-weight: bold;"> </div>`
         const int=document.querySelectorAll('.input');
         for (let j = 0; j <=(variables+1); j++) {
             //console.log(vi)
-            int[i].innerHTML+= `  <input type="text" name="" class=""  style="width:5%; height: 10%;">
-            <label for="">x<sub>${j+1}</sub></label>
-            ${mass(j, variables)}
+            int[i].innerHTML+= `  <input type="text" name="" class=""  style="width:4.5%; height: 10%; border-radius: 6px; border:none;">
+            <label for="" style="margin-left:4px;"> x<sub>${j+1} </sub> </label>
+            <label for="" style="color:rgb(0, 255, 0); margin-right:4px;"> ${mass(j, variables)}</label>
             `     
         }
     }
@@ -120,7 +123,7 @@ function crea_inputs(){
 function leer_fun_obj(){
     let array_obj=[];//array
     for (let i = 0; i <=variables-1; i++) {
-        let funcion_obj=parseInt(prompt("funcion objetivo \n"+"x"+(i+1)));
+        let funcion_obj=parseInt(prompt("Funcion objetivo \n"+"x"+(i+1)));
         array_obj.push(funcion_obj);
     }
     list_ob.push(array_obj);
@@ -185,16 +188,16 @@ function convertir_numero(numero){
 //validar el signo + despues de cada input
 function mas(index, variable){
     if(index==(variable-1)){
-        return ""
+        return " "
     }else{
-      return "+"
+      return " + "
     }
 }
 
 function mass(index, variable){
     if(index==(variable+1)){
-        return ""
+        return " "
     }else{
-      return "+"
+      return " + "
     }
 }
