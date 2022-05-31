@@ -9,8 +9,12 @@ function enviar(){
     variables=parseInt(document.getElementById('variables').value);
     restricciones=parseInt(document.getElementById('restricciones').value);
     opcion=document.getElementById('select_multiples').value;
-    create_fun_obj();
-    create_restricciones();
+
+    if (variables && restricciones && opcion) {
+        create_fun_obj();
+        create_restricciones();
+    }
+    
 }
 
 //funcion objetivo
@@ -54,7 +58,8 @@ function create_fun_obj(){
   
     for (let index = 0; index <=variables-1; index++) {
         funcion_obj.innerHTML+= `
-        <input type="text" name="" class="obj"  style="width:5%; height: 10%;">
+
+        <input type="text" name="" class=""  style="width:9.5%; height: 10%; border-radius: 6px; border:none;">
         <label for="">x<sub>${index+1}</sub></label>
         ${mas(index, variables-1)}
         `        
@@ -67,14 +72,15 @@ function create_fun_obj(){
 function create_restricciones(){
     const restricciones_input=document.querySelector('.restriccion_div');
     for (let i = 0; i <= restricciones-1; i++) {
-        restricciones_input.innerHTML+=`<p class="column" style="display:flex;"> </p>`
-        const int=document.querySelectorAll('.column');
-        for (let j = 0; j <=(variables-1); j++) {
-            int[i].innerHTML+= `  <input type="text" name="" class="row"  style="width:5%; height: 10%;">
-             <label for="">x<sub>${j+1}</sub></label>
-             ${mas(j, variables-1)} <label for="" style="width: 1%;"></label>
-            `  
-              
+
+        restricciones_input.innerHTML+=`<div class="input" style="display:flex; font-weight: bold;"> </div>`
+        const int=document.querySelectorAll('.input');
+        for (let j = 0; j <=(variables+1); j++) {
+            //console.log(vi)
+            int[i].innerHTML+= `  <input type="text" name="" class=""  style="width:4.5%; height: 10%; border-radius: 6px; border:none;">
+            <label for="" style="margin-left:4px;"> x<sub>${j+1} </sub> </label>
+            <label for="" style="color:rgb(0, 255, 0); margin-right:4px;"> ${mass(j, variables)}</label>
+            `     
         }
 
         for (let index = variables; index <=variables+1 ; index++) {
@@ -121,9 +127,11 @@ function create_restricciones(){
 
 //funcion que leera los datos de entrada de la funcion objetivo y los guardara en el array List
 function leer_fun_obj(){
-    const fun_obj=document.querySelectorAll('.obj')
-    for (let i = 0; i <=variables-1; i++) {  
-        list_ob.push(fun_obj[i].value);
+
+    let array_obj=[];//array
+    for (let i = 0; i <=variables-1; i++) {
+        let funcion_obj=parseInt(prompt("Funcion objetivo \n"+"x"+(i+1)));
+        array_obj.push(funcion_obj);
     }
   
 }
@@ -180,10 +188,19 @@ function Estandarizacion_general(lista_res,lista_funobj,max_min){
 
 //validar el signo + despues de cada input
 function mas(index, variable){
-    if(index==(variable)){
-        return ""
+
+    if(index==(variable-1)){
+        return " "
     }else{
-      return "+"
+      return " + "
+    }
+}
+
+function mass(index, variable){
+    if(index==(variable+1)){
+        return " "
+    }else{
+      return " + "
     }
 }
 
