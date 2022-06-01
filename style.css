@@ -88,7 +88,7 @@ body {
 
 }
 
-.restriccion_div{
+.restriccion_div {
     align-self: flex-start;
 }
 
@@ -118,4 +118,26 @@ body {
     border: 1px solid black;
     height: 20vh;
     background-color: white;
+}
+
+#calcular {
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(6, 169, 6);
+
+}
+#calcular:hover{
+    background-color: #C33764;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.titulo_fun {
+    color: white;
+}
+.restriccion_titulo{
+    color: white;
 }
