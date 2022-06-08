@@ -22,7 +22,7 @@ function enviar() {
         fun.setAttribute('style', 'display:block;');
         calcular.setAttribute('style', 'display:block;');
 
-        create_fun_obj();
+        create_fun_obj("x");
         create_restricciones();
     }
 
@@ -62,21 +62,36 @@ function leer_restricciones() {
 
 
 // crea los cuadros de donde se obtendra los datos de la funcion objetivo//
-function create_fun_obj() {
-    const label = document.querySelector(".titulo_fun")
+function create_fun_obj(mostrar) {
+
+    const label = document.querySelector(".titulo_fun")//titulo
     label.removeAttribute('style')
     const labell = document.querySelector(".restriccion_titulo")
     labell.removeAttribute('style')
-
     const funcion_obj = document.querySelector('.f_objt');
 
-    for (let index = 0; index <= variables - 1; index++) {
-        funcion_obj.innerHTML += `
-        <input type="text" name="" class="obj"  style="width:5%; height: 10%;">
-        <label for="">x<sub>${index + 1}</sub></label>
-        ${mas(index, variables - 1)}
-        `
+
+    // mostrar funcion objetivo en pantalla sin estandarizar
+    const p_mostrar_funobj=document.querySelector('.muestra_funobjt')
+    p_mostrar_funobj.setAttribute('style', 'display: flex')
+    if(mostrar=="y"){
+        for (let index = 0; index <= variables - 1; index++) {
+            p_mostrar_funobj.innerHTML += `
+            <p class="f">
+            ${list_ob[index]}<label for="">x<sub>${index + 1}</sub></label>${mas(index, variables - 1)}
+            </p>
+            `
+        }
+    }else if(mostrar=="x"){
+        for (let index = 0; index <= variables - 1; index++) {
+            funcion_obj.innerHTML += `
+            <input type="text" name="" class="obj"  style="width:5%; height: 10%;">
+            <label for="">x<sub>${index + 1}</sub></label>
+            ${mas(index, variables - 1)}
+            `
+        }
     }
+    
 
 }
 
@@ -121,22 +136,30 @@ function ejecutar() {
 
     leer_fun_obj()
     leer_restricciones() 
-    let resultado = document.querySelector('.resultados');
     let opcion = parseInt(document.getElementById('select_multiples').value);
     let titulo_festandarizada = document.querySelector('.titulo_festandarizada');
     titulo_festandarizada.setAttribute('style','display:block;')
+    let muestra_funcionobjt=document.querySelector('.muestra_funobjt');
+    muestra_funcionobjt.setAttribute('style','display:block;');
+    let muestra_res_estan=document.querySelector('.muestra_estand')
+    muestra_res_estan.setAttribute('style','display:block;')
     switch (opcion) {
         case 1://maximizar
+        create_fun_obj('y')
         /* FUNCION ESTANDARIZADA */
-            list_ob = Estandarizacion_general(lista, list_ob, "max");
-            resultado.innerHTML += `
-                                    <tr>
-                                     <th>${list_ob}</th>
-                                    </tr>`;
-
-            console.log(list_ob);
-            console.log("restricciones estandarizadas");
-            console.log(lista_rectric_estan);
+            // list_ob = Estandarizacion_general(lista, list_ob, "max");
+            // muestra_funcionobjt.innerHTML += `
+            //                         <tr>
+            //                          <th>${list_ob}</th>
+            //                         </tr>`;
+        /*  RESTRICCIONES ESTANDARIZADAS*/
+            // muestra_res_estan.innerHTML+=`
+            // <tr>
+            //  <th>${lista_rectric_estan}</th>
+            // </tr>`
+            // console.log(list_ob);
+            // console.log("restricciones estandarizadas");
+            // console.log(lista_rectric_estan);
             break;
         case 2://minimizar
             list_ob = Estandarizacion_general(lista, list_ob, "min");

@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="contend_main">
-            <div class="contend_mainn">
 
-                <div class="form">
-                    <input type="number" name="variables" id="variables" placeholder="Variables" required >
-                    <input type="number" name="variables" id="restricciones" placeholder="Restricciones" required>
-                    <select name="select" id="select_multiples" required>
-                        <option value="1">maximizar</option>
-                        <option value="2">minimizar</option>
-                    </select>
-                    <button id="btnform" type="submit"  name="Generar" onclick="enviar()">Generar</button>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contend_main">
+        <div class="contend_mainn">
+
+            <div class="form">
+                <input type="number" name="variables" id="variables" placeholder="Variables" required>
+                <input type="number" name="variables" id="restricciones" placeholder="Restricciones" required>
+                <select name="select" id="select_multiples" required>
+                    <option value="1">maximizar</option>
+                    <option value="2">minimizar</option>
+                </select>
+                <button id="btnform" type="submit" name="Generar" onclick="enviar()">Generar</button>
 
 
-                </div>
- 
             </div>
-            <!-- div de la funcion objeiva -->
-            <div class="funcion_obj">
-                <h3 class="titulo_fun" style="display: none;">Funcion objetivo</h3>
-               <div class="f_objt">
 
-               </div>
-            </div>
-            <!-- div de las restricciones -->
-            <div class="restriccion_div">
-                <h3 class="restriccion_titulo" style="display: none;">Restricciones</h3>
-                
-            </div >
-            <!-- RESULTADOS -->
-            <div class="resultados">
-                <h3 class="titulo_festandarizada" style="color: white; display: none;">Funcion estandarizada</h3>
-            </div>
-            <!-- boton calcular -->
-            <div>
-                <button id="calcular" type="submit"  name="Calcular" onclick="ejecutar() " style="display: none;">Calcular</button>
-            </div>
-           
         </div>
-        
-        
-        <script src="estandarizacion.js" async defer></script>
-    </body>
+        <!-- div de la funcion objeiva -->
+        <div class="funcion_obj">
+            <h3 class="titulo_fun" style="display: none;">Funcion objetivo</h3>
+            <div class="f_objt">
+
+            </div>
+        </div>
+        <!-- div de las restricciones -->
+        <div class="restriccion_div">
+            <h3 class="restriccion_titulo" style="display: none;">Restricciones</h3>
+
+        </div>
+        <!-- RESULTADOS -->
+        <div class="resultados">
+            <div>
+                <h3 class="titulo_festandarizada" style="color: white; display: none;">Funcion no estandarizada</h3>
+                <div class="muestra_funobjt" style="display:none">
+                    <!-- cuadro de no estandarizado -->
+                </div>
+                <h3 class="titulo_festandarizada" style="color: white; display: none;">Funcion estandarizada</h3>
+                <div class="muestra_estand" style="display:none">
+                    <!-- cuadro estandarizado -->
+                </div>
+            </div>
+
+        </div>
+        <!-- boton calcular -->
+        <div>
+            <button id="calcular" type="submit" name="Calcular" onclick="ejecutar() "
+                style="display: none;">Calcular</button>
+        </div>
+
+    </div>
+    <script src="estandarizacion.js" async defer></script>
+</body>
+
 </html>
-
-
-
