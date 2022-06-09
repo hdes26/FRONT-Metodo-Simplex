@@ -1,58 +1,124 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="contend_main">
-            <div class="contend_mainn">
 
-                <div class="form">
-                    <input type="number" name="variables" id="variables" placeholder="Variables" required >
-                    <input type="number" name="variables" id="restricciones" placeholder="Restricciones" required>
-                    <select name="select" id="select_multiples" required>
-                        <option value="1">maximizar</option>
-                        <option value="2">minimizar</option>
-                    </select>
-                    <button id="btnform" type="submit"  name="Generar" onclick="enviar()">Generar</button>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./jquery.lettering.min.js"></script>
+</head>
+
+<body>
+
+    <div class="word">LOADING...</div>
+    <div class="overlay"></div>
+
+    <div class="main">
+        <div class="contend_mainn">
+
+            <div class="form">
+                <input type="number" name="variables" id="variables" placeholder="Variables" required>
+                <input type="number" name="variables" id="restricciones" placeholder="Restricciones" required>
+                <select name="select" id="select_multiples" required>
+                    <option value="1">maximizar</option>
+                    <option value="2">minimizar</option>
+                </select>
+                <button id="btnform" type="submit" name="Generar" onclick="enviar()">Generar</button>
 
 
-                </div>
- 
             </div>
-            <!-- div de la funcion objeiva -->
-            <div class="funcion_obj">
-                <h3 class="titulo_fun" style="display: none;">Funcion objetivo</h3>
-               <div class="f_objt">
 
-               </div>
-            </div>
-            <!-- div de las restricciones -->
-            <div class="restriccion_div">
-                <h3 class="restriccion_titulo" style="display: none;">Restricciones</h3>
-                
-            </div >
-            <!-- RESULTADOS -->
-            <div class="resultados">
-                <h3 class="titulo_festandarizada" style="color: white; display: none;">Funcion estandarizada</h3>
-            </div>
-            <!-- boton calcular -->
-            <div>
-                <button id="calcular" type="submit"  name="Calcular" onclick="ejecutar() " style="display: none;">Calcular</button>
-            </div>
-           
         </div>
-        
-        
-        <script src="estandarizacion.js" async defer></script>
-    </body>
+        <div class="funcion_obj">
+            <h3 class="titulo_fun" style="display: none;">Funcion objetivo</h3>
+            <div class="f_objt">
+
+            </div>
+        </div>
+        <div class="restriccion_div">
+            <h3 class="restriccion_titulo" style="display: none;">Restricciones</h3>
+
+        </div>
+        <div class="resultados">
+            <h3 class="titulo_festandarizada" style="color: white; display: none;">Funcion estandarizada</h3>
+        </div>
+        <div>
+            <button id="calcular" type="submit" name="Calcular" onclick="ejecutar() "
+                style="display: none;">Calcular</button>
+        </div>
+        <h1></h1>
+    </div>
+
+
+    <div class="down"><img src="https://img.icons8.com/plasticine/50/undefined/expand-arrow.png" />
+        <table class="container">
+            <thead>
+                <tr>
+                    <th><h1></h1></th>
+                    <th><h1></h1></th>
+                    <th><h1>Sites</h1></th>
+                    <th><h1>Views</h1></th>
+                    <th><h1>Clicks</h1></th>
+                    <th><h1>Average</h1></th>
+                    <th><h1>Sites</h1></th>
+                    <th><h1>Views</h1></th>
+                    <th><h1>Clicks</h1></th>
+                    <th><h1>Average</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Google</td>
+                    <td>9518</td>
+                    <td>6369</td>
+                    <td>01:32:50</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>9518</td>
+                    <td>6369</td>
+                    <td>01:32:50</td>
+                </tr>
+                <tr>
+                    <td>Twitter</td>
+                    <td>7326</td>
+                    <td>10437</td>
+                    <td>00:51:22</td>
+                </tr>
+                <tr>
+                    <td>Amazon</td>
+                    <td>4162</td>
+                    <td>5327</td>
+                    <td>00:24:34</td>
+                </tr>
+            <tr>
+                    <td>LinkedIn</td>
+                    <td>3654</td>
+                    <td>2961</td>
+                    <td>00:12:10</td>
+                </tr>
+            <tr>
+                    <td>CodePen</td>
+                    <td>2002</td>
+                    <td>4135</td>
+                    <td>00:46:19</td>
+                </tr>
+            <tr>
+                    <td>GitHub</td>
+                    <td>4623</td>
+                    <td>3486</td>
+                    <td>00:31:52</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="estandarizacion.js" async defer></script>
+</body>
+
 </html>
-
-
-
