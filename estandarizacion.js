@@ -87,11 +87,6 @@ function leer_restricciones() {
         const data = column[i].querySelectorAll('.row')
         let lista_temp = [];//array
         for (let j = 0; j <= variables + 1; j++) {
-            if (j==3) {
-                lista_temp.push("0")
-            }if (j==4) {
-                lista_temp.push("0")
-            }
             if (data[j].value=="1") {
                 lista_temp.push(data[j].value + "X"+ (j+1))
                 continue;
@@ -303,7 +298,7 @@ function mas(index, variable) {
 
 function tables() {
 
-    let container = document.querySelector('.container');
+    
 
     let funcobjetivo = {
         "SA": [["1X1", "1X2", "-1S1", "0", "0", "1A1", "0", "=", "2"], ["1X1", "1X2", "0", "-1S2", "0", "0", "1A2", "=", "3"], ["1X1", "3X2", "0", "0", "1S3", "0", "0", "=", "12"]],
