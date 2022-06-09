@@ -87,19 +87,18 @@ function leer_restricciones() {
         const data = column[i].querySelectorAll('.row')
         let lista_temp = [];//array
         for (let j = 0; j <= variables + 1; j++) {
-            if (data[j].value=="1") {
-                lista_temp.push(data[j].value + "X"+ (j+1))
+            if (data[j].value == "1") {
+                lista_temp.push(data[j].value + "X" + (j + 1))
                 continue;
             }
-            if (data[j].value=="3" && j==1) {
-                lista_temp.push(data[j].value + "X"+ (j+1))
+            if (data[j].value == "3" && j == 1) {
+                lista_temp.push(data[j].value + "X" + (j + 1))
                 continue;
             }
             lista_temp.push(data[j].value)
         }
         lista.push(lista_temp);
     }
-
 }
 
 
@@ -159,8 +158,6 @@ function create_restricciones() {
 }
 
 function ejecutar() {
-    tables();
-
 
     $('.funcion_obj').hide();
     $('.restriccion_div').hide();
@@ -247,8 +244,8 @@ function Estandarizacion_general(lista_res, lista_funobj, max_min) {
     //estandarizacion de la funcion objetivo
     for (let i = 0; i < restricciones; i++) {
         if (Lista_t[i][variables] == ">=") {
-            
-            Lista_obj.push("0S" + OSI )
+
+            Lista_obj.push("0S" + OSI)
             Lista_obj.push(vari + MA)
             console.log(Lista_obj)
         } else if (Lista_t[i][variables] == "<=") {
@@ -266,17 +263,19 @@ function Estandarizacion_general(lista_res, lista_funobj, max_min) {
         if (Lista_t[i][variables] == ">=") {
             SI++
             AI++
-            Lista_t[i].splice(variables, 1, (("-"+1+"S") + SI ),((1+"A") + AI), "=");
+            Lista_t[i].splice(variables, 1, (("-" + 1 + "S") + SI), ((1 + "A") + AI), "=");
         } else if (Lista_t[i][variables] == "<=") {
             SI++
-            Lista_t[i].splice(variables, 1, ((1+"S") + SI), "=");
+            Lista_t[i].splice(variables, 1, ((1 + "S") + SI), "=");
         } else if (Lista_t[i][variables] == "=") {
             AI++
-            Lista_t[i].splice(variables, 1, ((1+"A") + AI), "=");
+            Lista_t[i].splice(variables, 1, ((1 + "A") + AI), "=");
         }
 
     }
+
     lista_rectric_estan = Lista_t;
+    tables();
     return Lista_obj;
 }
 
@@ -298,12 +297,32 @@ function mas(index, variable) {
 
 function tables() {
 
-    
+    let nuevalista = lista;
+
+    nuevalista[0].splice(3, 0, '0');
+    nuevalista[0].splice(4, 0, '0');
+
+
+    nuevalista[1].splice(2, 0, '0');
+    nuevalista[1].splice(4, 0, '0');
+    nuevalista[1].splice(5, 0, '0');
+
+
+    nuevalista[2].splice(2, 0, '0');
+    nuevalista[2].splice(3, 0, '0');
+    nuevalista[2].splice(5, 0, '0');
+    nuevalista[2].splice(6, 0, '0');
+
+
+
+
+    console.log(nuevalista);
 
     let funcobjetivo = {
         "SA": [["1X1", "1X2", "-1S1", "0", "0", "1A1", "0", "=", "2"], ["1X1", "1X2", "0", "-1S2", "0", "0", "1A2", "=", "3"], ["1X1", "3X2", "0", "0", "1S3", "0", "0", "=", "12"]],
         "funcObj": ["1X1", "2X2", "0S1", "0S2", "0S3", "MA1", "MA2"]
     }
+
 
 
     fetch('https://backend-simplex.herokuapp.com/api/resolve', {
